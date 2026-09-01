@@ -1,0 +1,46 @@
+<view class="page">
+  <view class="banner">
+    <view class="banner-title">整屋装修 · 一口价全包</view>
+    <view class="banner-sub">90㎡内套餐一口价 · 超出的按单价核算 · 材质可换</view>
+  </view>
+
+  <view
+    wx:for="{{cards}}"
+    wx:key="id"
+    class="pkg-card card {{item.hot ? 'hot' : ''}}"
+    data-id="{{item.id}}"
+    bindtap="goMaterials"
+  >
+    <view wx:if="{{item.hot}}" class="hot-badge">🔥 最受欢迎</view>
+    <view class="pkg-head">
+      <view class="pkg-name">
+        {{item.name}}<text class="pkg-tag">{{item.tag}}</text>
+      </view>
+      <view class="pkg-price">¥{{item.price}}<text class="unit">一口价</text></view>
+    </view>
+    <view class="pkg-note">{{item.stdText}}</view>
+    <view class="pkg-note price-note">{{item.rateText}}</view>
+    <view class="pkg-note room-note">{{item.roomRateText}}</view>
+    <view class="chips">
+      <text
+        wx:for="{{item.categoryChips}}"
+        wx:for-item="c"
+        wx:key="name"
+        class="chip"
+      >{{c.name}}</text>
+    </view>
+    <view class="brand-line">可选品牌：{{item.brandLine}}</view>
+    <view class="pkg-materials" wx:if="{{item.materials.length}}">
+      <view class="mat-title">套餐包含材料</view>
+      <view class="mat-grid">
+        <view class="mat-item" wx:for="{{item.materials}}" wx:for-item="m" wx:key="label">
+          <text class="mat-label">{{m.label}}</text>
+          <text class="mat-value">{{m.value}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer-tip">点击套餐卡片，查看每个位置可选的材料与价格</view>
+</view>
+

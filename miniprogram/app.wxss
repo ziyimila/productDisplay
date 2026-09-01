@@ -1,0 +1,71 @@
+page {
+  background: #f5f6f8;
+  color: #222;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 28rpx;
+  line-height: 1.5;
+}
+
+/* ---------- 通用卡片 ---------- */
+.card {
+  background: #ffffff;
+  border-radius: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+/* ---------- 标签 ---------- */
+.tag {
+  display: inline-block;
+  font-size: 20rpx;
+  padding: 2rpx 14rpx;
+  border-radius: 8rpx;
+  margin-left: 12rpx;
+  vertical-align: 2rpx;
+}
+.tag-standard {
+  background: #e8f7ee;
+  color: #1a9e4b;
+}
+.tag-upgrade {
+  background: #eaf3ff;
+  color: #2f6fe4;
+}
+
+/* ---------- 价格 ---------- */
+.price {
+  color: #ff5f3d;
+  font-weight: 700;
+}
+.price-free {
+  color: #1a9e4b;
+  font-weight: 600;
+}
+
+/* ---------- 按钮 ---------- */
+.btn-primary {
+  background: linear-gradient(135deg, #ff8a3d, #ff5f3d);
+  color: #ffffff;
+  border-radius: 44rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  text-align: center;
+  padding: 20rpx 0;
+}
+.btn-ghost {
+  background: #ffffff;
+  color: #ff6b35;
+  border: 2rpx solid #ff6b35;
+  border-radius: 40rpx;
+  font-size: 26rpx;
+  text-align: center;
+  padding: 14rpx 26rpx;
+}
+
+/* ---------- 其他 ---------- */
+.section-title {
+  font-size: 30rpx;
+  font-weight: 700;
+}
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}

@@ -1,0 +1,86 @@
+<view class="page">
+  <view class="head card">
+    <view class="head-title">{{packageName}}</view>
+    <view class="head-sub">选中分类后，可切换品牌查看型号</view>
+  </view>
+
+  <!-- 套餐基础材料：套餐标配，可不加价任选 -->
+  <view class="base-card card" wx:if="{{baseMats.length}}">
+    <view class="base-title">套餐基础材料（均含于套餐价）</view>
+    <view class="base-group" wx:for="{{baseMats}}" wx:key="label" wx:for-item="g">
+      <view class="base-label">{{g.label}}<text wx:if="{{g.hint}}" class="base-hint"> · {{g.hint}}</text></view>
+      <view class="base-opts">
+        <view
+          wx:for="{{g.options}}"
+          wx:for-item="o"
+          wx:key="name"
+          class="base-opt {{o.selected ? 'active' : ''}}"
+          data-label="{{g.label}}"
+          data-name="{{o.name}}"
+          bindtap="onBaseTap"
+        >{{o.name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <scroll-view class="cat-bar" scroll-x="{{true}}" enable-flex="{{true}}">
+    <view
+      wx:for="{{categories}}"
+      wx:key="id"
+      class="cat-chip {{item.id === activeCategoryId ? 'active' : ''}}"
+      data-id="{{item.id}}"
+      bindtap="onCategoryTap"
+    >{{item.icon}} {{item.name}}<text class="count">{{item.count}}</text></view>
+  </scroll-view>
+
+  <scroll-view class="brand-bar" scroll-x="{{true}}" enable-flex="{{true}}">
+    <view
+      wx:for="{{brandChips}}"
+      wx:key="id"
+      class="brand-chip {{item.id === activeBrandId ? 'active' : ''}}"
+      data-id="{{item.id}}"
+      bindtap="onBrandTap"
+    >{{item.name}}</view>
+  </scroll-view>
+
+  <view wx:if="{{catTip}}" class="cat-tip">{{catTip}}</view>
+
+  <view class="model-list">
+    <view
+      wx:for="{{models}}"
+      wx:key="id"
+      class="{{item.rowClass}}"
+      data-id="{{item.id}}"
+      bindtap="goDetail"
+    >
+      <view class="model-img">
+        {{item.emoji}}
+        <view wx:if="{{item.selected}}" class="sel-ribbon">已选</view>
+      </view>
+      <view class="model-body">
+        <view class="model-name">
+          {{item.name}}<text class="{{item.tagClass}}">{{item.tagText}}</text>
+        </view>
+        <view class="model-desc">{{item.desc}}</view>
+        <view class="{{item.priceClass}}">{{item.priceText}}</view>
+      </view>
+      <view
+        class="quick-btn {{item.selected ? 'on' : ''}}"
+        data-id="{{item.id}}"
+        catchtap="quickSelect"
+      >{{item.selected ? '✓' : '+'}}</view>
+      <view class="model-arrow">›</view>
+    </view>
+
+    <view wx:if="{{models.length === 0}}" class="empty">该品牌暂无型号</view>
+  </view>
+
+  <!-- 底部快捷方案栏 -->
+  <view wx:if="{{showPlanBar}}" class="plan-bar safe-bottom" bindtap="goPlanBar">
+    <view class="plan-bar-info">
+      <view class="plan-bar-count">已选 {{planCount}}/{{catTotal}} 类</view>
+      <view wx:if="{{planExtraPlain > 0}}" class="plan-bar-extra">升级 +¥{{planExtraText}}</view>
+    </view>
+    <view class="plan-bar-btn">查看方案 ›</view>
+  </view>
+</view>

@@ -1,0 +1,64 @@
+.page {
+  padding: 40rpx 24rpx 60rpx;
+  box-sizing: border-box;
+}
+
+.avatar {
+  text-align: center;
+  padding: 40rpx 0;
+}
+.avatar-emoji {
+  font-size: 120rpx;
+}
+.avatar-name {
+  margin-top: 16rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+}
+.avatar-sub {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: #888;
+}
+
+.info {
+  padding: 8rpx 32rpx;
+}
+.info-row {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #f0f1f3;
+}
+.info-row:last-child {
+  border-bottom: none;
+}
+.info-label {
+  width: 180rpx;
+  font-size: 26rpx;
+  color: #666;
+}
+.info-value {
+  flex: 1;
+  font-size: 26rpx;
+  text-align: right;
+  color: #222;
+}
+
+.tip {
+  margin-top: 24rpx;
+  font-size: 20rpx;
+  color: #aaa;
+  text-align: center;
+}
+
+.actions {
+  margin-top: 40rpx;
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+.actions .btn-primary,
+.actions .btn-ghost {
+  flex: 1;
+}

@@ -1,0 +1,237 @@
+.page {
+  padding-bottom: 200rpx;
+}
+
+.head {
+  margin: 24rpx 24rpx 0;
+  padding: 28rpx 32rpx;
+}
+.head-title {
+  font-size: 34rpx;
+  font-weight: 700;
+}
+.head-sub {
+  margin-top: 6rpx;
+  font-size: 22rpx;
+  color: #888;
+}
+
+/* 分类横滑 */
+.cat-bar {
+  margin-top: 24rpx;
+  white-space: nowrap;
+  width: 100%;
+}
+.cat-chip {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 24rpx;
+  background: #ffffff;
+  border: 1rpx solid #e6e8eb;
+  border-radius: 28rpx;
+  padding: 10rpx 24rpx;
+  font-size: 24rpx;
+}
+.cat-chip.active {
+  background: #ff6b35;
+  color: #ffffff;
+  border-color: #ff6b35;
+}
+.cat-chip .count {
+  margin-left: 8rpx;
+  font-size: 20rpx;
+  opacity: 0.7;
+}
+
+/* 品牌横滑 */
+.brand-bar {
+  margin-top: 20rpx;
+  white-space: nowrap;
+  width: 100%;
+}
+.brand-chip {
+  display: inline-flex;
+  margin-left: 24rpx;
+  background: #ffffff;
+  border: 1rpx solid #e6e8eb;
+  border-radius: 28rpx;
+  padding: 8rpx 28rpx;
+  font-size: 24rpx;
+}
+.brand-chip.active {
+  background: #ff6b35;
+  color: #ffffff;
+  border-color: #ff6b35;
+}
+
+/* 型号列表 */
+.model-list {
+  margin-top: 20rpx;
+}
+.model-row {
+  display: flex;
+  align-items: center;
+  margin: 0 24rpx 20rpx;
+  padding: 20rpx;
+}
+.model-row.selected {
+  border: 2rpx solid #ff6b35;
+  box-shadow: 0 4rpx 20rpx rgba(255, 107, 53, 0.08);
+}
+.model-img {
+  position: relative;
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 16rpx;
+  background: #e8eef4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 84rpx;
+  flex-shrink: 0;
+}
+.sel-ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #ff6b35;
+  color: #ffffff;
+  font-size: 18rpx;
+  line-height: 1;
+  padding: 8rpx 12rpx;
+  border-radius: 0 16rpx 0 16rpx;
+}
+.model-body {
+  flex: 1;
+  margin-left: 24rpx;
+  overflow: hidden;
+}
+.model-name {
+  font-size: 28rpx;
+  font-weight: 700;
+}
+.model-desc {
+  margin-top: 8rpx;
+  font-size: 22rpx;
+  color: #666;
+  line-height: 1.6;
+}
+.model-price {
+  margin-top: 12rpx;
+  font-size: 26rpx;
+}
+
+/* 快捷选择按钮 */
+.quick-btn {
+  width: 56rpx;
+  height: 56rpx;
+  border-radius: 50%;
+  border: 2rpx solid #ff6b35;
+  color: #ff6b35;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36rpx;
+  margin-left: 16rpx;
+  flex-shrink: 0;
+}
+.quick-btn.on {
+  background: #ff6b35;
+  color: #ffffff;
+  font-size: 28rpx;
+  border-color: #ff6b35;
+}
+
+.model-arrow {
+  color: #ccc;
+  font-size: 36rpx;
+  padding: 0 8rpx;
+}
+.empty {
+  text-align: center;
+  color: #aaa;
+  font-size: 24rpx;
+  padding: 60rpx 0;
+}
+
+/* 底部快捷方案栏 */
+.plan-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  border-top: 1rpx solid #eee;
+  padding: 16rpx 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.06);
+  z-index: 10;
+}
+.plan-bar-count {
+  font-size: 26rpx;
+  font-weight: 700;
+}
+.plan-bar-extra {
+  margin-top: 4rpx;
+  font-size: 20rpx;
+  color: #ff6b35;
+}
+.plan-bar-btn {
+  background: linear-gradient(135deg, #ff8a3d, #ff5f3d);
+  color: #ffffff;
+  font-size: 28rpx;
+  font-weight: 600;
+  padding: 16rpx 44rpx;
+  border-radius: 40rpx;
+}
+
+/* 分类提示 */
+.cat-tip {
+  margin: 16rpx 28rpx 0;
+  font-size: 20rpx;
+  color: #1a9e4b;
+}
+
+/* 套餐基础材料（可选择项） */
+.base-card {
+  margin: 0 24rpx 24rpx;
+  padding: 24rpx;
+}
+.base-title {
+  font-size: 26rpx;
+  font-weight: 700;
+  margin-bottom: 8rpx;
+}
+.base-group {
+  margin-top: 20rpx;
+}
+.base-label {
+  font-size: 22rpx;
+  color: #999;
+  margin-bottom: 10rpx;
+}
+.base-hint {
+  color: #ff6b35;
+}
+.base-opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12rpx;
+}
+.base-opt {
+  background: #f5f6f8;
+  border: 1rpx solid #e6e8eb;
+  border-radius: 12rpx;
+  padding: 8rpx 24rpx;
+  font-size: 24rpx;
+  color: #444;
+}
+.base-opt.active {
+  background: #fff3e8;
+  border-color: #ff6b35;
+  color: #ff6b35;
+  font-weight: 600;
+}

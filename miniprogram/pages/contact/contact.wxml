@@ -1,0 +1,29 @@
+<view class="page">
+  <view class="avatar">
+    <view class="avatar-emoji">🏠</view>
+    <view class="avatar-name">{{companyName}}</view>
+    <view class="avatar-sub">整屋装修 · 明码标价</view>
+  </view>
+
+  <view class="card info">
+    <view class="info-row">
+      <text class="info-label">📞 电话</text>
+      <text class="info-value">{{phone}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">💬 微信</text>
+      <text class="info-value">{{wechat}}</text>
+    </view>
+    <view class="info-row">
+      <text class="info-label">📍 地址</text>
+      <text class="info-value">{{address}}</text>
+    </view>
+  </view>
+
+  <view class="tip">以上为公司/门店联系方式示例，请到 contact.js 中替换为真实信息</view>
+
+  <view class="actions safe-bottom">
+    <view class="btn-primary" bindtap="makeCall">拨打电话</view>
+    <view class="btn-ghost" bindtap="copyWechat">复制微信</view>
+  </view>
+</view>

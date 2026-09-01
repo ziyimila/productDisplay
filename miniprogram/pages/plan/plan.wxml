@@ -1,0 +1,101 @@
+<view class="page">
+  <view class="head card">
+    <view class="head-title">我的方案 · {{packageName}}</view>
+    <view class="head-sub" bindtap="goMaterials">去调整材质 ›</view>
+  </view>
+
+  <!-- 面积 + 户型 -->
+  <view class="layout card">
+    <view class="layout-row">
+      <text class="layout-label">房屋面积</text>
+      <view class="area-input">
+        <input
+          type="number"
+          value="{{layout.area}}"
+          bindinput="onAreaInput"
+          placeholder="请输入面积"
+          maxlength="4"
+        />
+        <text class="unit">㎡</text>
+      </view>
+      <text class="layout-std">标准 {{stdText}}</text>
+    </view>
+
+    <view class="room-row" wx:for="{{roomList}}" wx:key="key">
+      <text class="room-label">{{item.label}}</text>
+      <text class="room-std-count" wx:if="{{item.std > 0}}">含{{item.std}}</text>
+      <view class="stepper" wx:if="{{item.adjustable}}">
+        <view
+          class="step-btn"
+          data-key="{{item.key}}"
+          data-delta="-1"
+          bindtap="changeRoom"
+        >−</view>
+        <text class="step-count">{{item.count}}</text>
+        <view
+          class="step-btn"
+          data-key="{{item.key}}"
+          data-delta="1"
+          bindtap="changeRoom"
+        >＋</view>
+      </view>
+      <view wx:else class="stepper stepper-fixed">
+        <text class="step-count">{{item.count}}</text>
+        <text class="fixed-tip">固定不可加</text>
+      </view>
+      <text class="room-over {{item.over > 0 ? 'on' : ''}}">{{item.overText}}</text>
+    </view>
+
+    <view class="layout-tip">套餐覆盖 {{stdText}}；超出面积按单价/㎡ 核算，多出的卫生间另加价</view>
+  </view>
+
+  <!-- 已选材质 -->
+  <view class="section-title">已选材质</view>
+  <view
+    wx:for="{{lines}}"
+    wx:key="categoryId"
+    class="line card"
+    data-category="{{item.categoryId}}"
+    bindtap="changeCategory"
+  >
+    <view class="line-left">
+      <view class="category">{{item.categoryName}}</view>
+      <view class="model">{{item.modelName}}</view>
+      <view wx:if="{{item.includeText}}" class="line-include">{{item.includeText}}</view>
+    </view>
+    <view class="line-right">
+      <view class="{{item.priceClass}}">{{item.priceText}}</view>
+      <view class="{{item.labelClass}}">{{item.label}}</view>
+    </view>
+    <view class="line-arrow">›</view>
+  </view>
+
+  <!-- 基础材料（套餐标配） -->
+  <view class="section-title">基础材料（套餐标配）</view>
+  <view class="total card">
+    <view class="total-row" wx:for="{{baseLines}}" wx:key="label">
+      <text>{{item.label}}</text>
+      <text>{{item.value}}</text>
+    </view>
+  </view>
+
+  <!-- 费用明细 -->
+  <view class="section-title">费用明细</view>
+  <view class="total card">
+    <view class="total-row" wx:for="{{feeRows}}" wx:key="label">
+      <text>{{item.label}}</text>
+      <text>{{item.text}}</text>
+    </view>
+    <view class="total-row big">
+      <text>预估总价</text>
+      <text>{{totalText}}</text>
+    </view>
+  </view>
+
+  <view class="actions">
+    <view class="btn-ghost" bindtap="changePackage">换套餐</view>
+    <view class="btn-primary" bindtap="sendPlan">发送方案给客户</view>
+  </view>
+
+  <view class="tip">标注"内含N款可选"的为套餐标配，可任选不加价 · 报价仅供估算，以实地量房为准</view>
+</view>

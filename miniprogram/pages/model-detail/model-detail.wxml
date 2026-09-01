@@ -1,0 +1,57 @@
+<view class="page">
+  <view class="detail-img {{showImage ? 'placeholder' : ''}}">
+    <image wx:if="{{!showImage}}" class="detail-photo" src="{{currentSrc}}" mode="aspectFill" />
+    <view wx:else>
+      <view class="emoji">{{currentEmoji}}</view>
+      <view class="cap">{{capText}}</view>
+    </view>
+  </view>
+
+  <view class="thumbs">
+    <view
+      wx:for="{{thumbs}}"
+      wx:key="index"
+      class="thumb {{index === thumbIndex ? 'active' : ''}}"
+      data-index="{{index}}"
+      bindtap="onThumbTap"
+    >
+      <image wx:if="{{item.src}}" class="thumb-photo" src="{{item.src}}" mode="aspectFill" />
+      <view wx:else class="thumb-emoji">{{item.emoji}}</view>
+      <view class="thumb-label">{{item.text}}</view>
+    </view>
+  </view>
+
+  <view class="title card">
+    <view class="name">{{brandName}} · {{model.name}}<text class="{{model.tagClass}}">{{model.tagText}}</text></view>
+    <view class="price-line">
+      <text class="price">{{model.priceText}}</text>
+      <text class="price-tip">{{model.priceTip}}</text>
+    </view>
+  </view>
+
+  <view class="specs card" wx:if="{{specs.length > 0}}">
+    <view class="specs-title">规格参数</view>
+    <view class="spec-grid">
+      <view class="spec" wx:for="{{specs}}" wx:key="k">
+        <view class="k">{{item.k}}</view>
+        <view class="v">{{item.v}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="desc card">
+    <view class="desc-title">产品说明</view>
+    <text class="desc-text">{{model.desc}}</text>
+  </view>
+
+  <view class="bottom-bar safe-bottom">
+    <view class="bar-price">
+      <text class="price">{{model.priceText}}</text>
+      <text class="bar-tip">{{model.priceTip}}</text>
+    </view>
+    <view wx:if="{{selected}}" class="btn-ghost view-plan" bindtap="goPlan">查看方案</view>
+    <view class="btn-primary choose {{selected ? 'chosen' : ''}}" bindtap="choose">
+      {{selected ? '已选 ✓ · 方案中' : '选这个 · 加入方案'}}
+    </view>
+  </view>
+</view>
